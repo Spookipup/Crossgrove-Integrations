@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.crossgrove.integrations.mixin",
+  "plugin": "com.crossgrove.integrations.mixin.CrossgroveMixinPlugin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "GtceuControllableBlockProviderMixin",
+    "LsoBlockModifierMixin",
+    "OmniMeterMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 0
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    "minecraft:nether_wart",
+    "minecraft:cactus",
+    "mysticalagriculture:fire_crop",
+    "mysticalagriculture:blaze_crop",
+    "mysticalagriculture:nether_crop"
+  ],
+  "plants": [
+    "minecraft:nether_wart",
+    "minecraft:cactus",
+    "agricraft:nitor_wart",
+    "agricraft:nethereed",
+    "mysticalagriculture:fire",
+    "mysticalagriculture:blaze",
+    "mysticalagriculture:nether"
+  ],
+  "too_cold": 10.0,
+  "ideal_min": 28.0,
+  "ideal_max": 48.0,
+  "too_hot": 70.0,
+  "stress_regression_multiplier": 0.7
+}

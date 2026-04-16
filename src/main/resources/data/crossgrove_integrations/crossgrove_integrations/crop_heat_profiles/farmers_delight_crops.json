@@ -1,0 +1,34 @@
+[
+  {
+    "blocks": [
+      "farmersdelight:cabbages"
+    ],
+    "too_cold": -2.0,
+    "ideal_min": 10.0,
+    "ideal_max": 24.0,
+    "too_hot": 38.0
+  },
+  {
+    "blocks": [
+      "farmersdelight:tomatoes",
+      "farmersdelight:budding_tomatoes"
+    ],
+    "too_cold": 8.0,
+    "ideal_min": 22.0,
+    "ideal_max": 34.0,
+    "too_hot": 48.0
+  },
+  {
+    "blocks": [
+      "farmersdelight:rice",
+      "farmersdelight:rice_panicles"
+    ],
+    "plants": [
+      "farmersdelight:rice"
+    ],
+    "too_cold": 12.0,
+    "ideal_min": 24.0,
+    "ideal_max": 36.0,
+    "too_hot": 50.0
+  }
+]

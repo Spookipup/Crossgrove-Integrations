@@ -1,0 +1,15 @@
+{
+  "blocks": [
+    "minecraft:sweet_berry_bush",
+    "mysticalagriculture:ice_crop",
+    "mysticalagriculture:blizz_crop"
+  ],
+  "plants": [
+    "mysticalagriculture:ice"
+  ],
+  "too_cold": -15.0,
+  "ideal_min": 0.0,
+  "ideal_max": 18.0,
+  "too_hot": 35.0,
+  "stress_regression_multiplier": 0.7
+}

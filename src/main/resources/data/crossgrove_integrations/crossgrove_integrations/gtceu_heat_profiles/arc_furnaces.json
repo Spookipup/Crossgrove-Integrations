@@ -1,0 +1,11 @@
+{
+  "path_suffixes": [
+    "_arc_furnace"
+  ],
+  "thermal_mass": 35.0,
+  "active_temperature_gain_per_tick": 2.5,
+  "temperature_gain_per_eut": 0.004,
+  "passive_cooling_rate": 0.00035,
+  "safe_temperature": 1000.0,
+  "danger_temperature": 1500.0
+}
