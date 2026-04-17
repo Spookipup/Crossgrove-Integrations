@@ -1,8 +1,9 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.survival;
 
 import com.Da_Technomancer.crossroads.api.Capabilities;
 import com.Da_Technomancer.crossroads.api.heat.HeatUtil;
 import com.Da_Technomancer.crossroads.api.heat.IHeatHandler;
+import com.crossgrove.integrations.CrossgroveConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;

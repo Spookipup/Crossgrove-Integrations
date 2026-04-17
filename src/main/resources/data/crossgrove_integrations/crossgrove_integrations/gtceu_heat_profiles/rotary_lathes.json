@@ -1,0 +1,16 @@
+{
+  "path_suffixes": [
+    "_lathe"
+  ],
+  "thermal_mass": 25.0,
+  "active_temperature_gain_per_tick": 0.45,
+  "temperature_gain_per_eut": 0.0012,
+  "passive_cooling_rate": 0.00055,
+  "heat_powers_machine": true,
+  "minimum_rotary_speed": 3.0,
+  "ideal_min_rotary_speed": 6.0,
+  "ideal_max_rotary_speed": 14.0,
+  "rotary_energy_per_tick": 6.0,
+  "safe_temperature": 600.0,
+  "danger_temperature": 900.0
+}

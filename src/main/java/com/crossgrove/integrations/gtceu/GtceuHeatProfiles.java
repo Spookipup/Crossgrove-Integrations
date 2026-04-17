@@ -1,5 +1,6 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.gtceu;
 
+import com.crossgrove.integrations.CrossgroveIntegrations;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
@@ -56,7 +57,7 @@ public final class GtceuHeatProfiles extends SimpleJsonResourceReloadListener {
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> jsons, ResourceManager resourceManager,
                          ProfilerFiller profiler) {
-        List<GtceuHeatProfile> loaded = new ArrayList<>(BUILTIN_PROFILES);
+        List<GtceuHeatProfile> loaded = new ArrayList<>();
         for (var entry : jsons.entrySet()) {
             try {
                 loaded.add(parseProfile(GsonHelper.convertToJsonObject(entry.getValue(), entry.getKey().toString())));
@@ -64,6 +65,7 @@ public final class GtceuHeatProfiles extends SimpleJsonResourceReloadListener {
                 CrossgroveIntegrations.LOGGER.warn("Failed loading GTCEu heat profile {}", entry.getKey(), exception);
             }
         }
+        loaded.addAll(BUILTIN_PROFILES);
         loaded.sort(Comparator.comparingInt(profile -> profile.blocks().isEmpty() ? 1 : 0));
         profiles = List.copyOf(loaded);
         CrossgroveIntegrations.LOGGER.info("Loaded {} GTCEu heat profiles", profiles.size());
@@ -76,9 +78,20 @@ public final class GtceuHeatProfiles extends SimpleJsonResourceReloadListener {
         double activeGain = GsonHelper.getAsDouble(json, "active_temperature_gain_per_tick", DEFAULT_PROFILE.activeTemperatureGainPerTick());
         double euGain = GsonHelper.getAsDouble(json, "temperature_gain_per_eut", DEFAULT_PROFILE.temperatureGainPerEUt());
         double passiveCooling = GsonHelper.getAsDouble(json, "passive_cooling_rate", DEFAULT_PROFILE.passiveCoolingRate());
+        double minimumWorkingTemperature = GsonHelper.getAsDouble(json, "minimum_working_temperature", DEFAULT_PROFILE.minimumWorkingTemperature());
+        double idealMinTemperature = GsonHelper.getAsDouble(json, "ideal_min_temperature", DEFAULT_PROFILE.idealMinTemperature());
+        double idealMaxTemperature = GsonHelper.getAsDouble(json, "ideal_max_temperature", DEFAULT_PROFILE.idealMaxTemperature());
+        boolean heatPowersMachine = GsonHelper.getAsBoolean(json, "heat_powers_machine", DEFAULT_PROFILE.heatPowersMachine());
+        double minimumRotarySpeed = GsonHelper.getAsDouble(json, "minimum_rotary_speed", DEFAULT_PROFILE.minimumRotarySpeed());
+        double idealMinRotarySpeed = GsonHelper.getAsDouble(json, "ideal_min_rotary_speed", DEFAULT_PROFILE.idealMinRotarySpeed());
+        double idealMaxRotarySpeed = GsonHelper.getAsDouble(json, "ideal_max_rotary_speed", DEFAULT_PROFILE.idealMaxRotarySpeed());
+        double rotaryEnergyPerTick = GsonHelper.getAsDouble(json, "rotary_energy_per_tick", DEFAULT_PROFILE.rotaryEnergyPerTick());
         double safeTemperature = GsonHelper.getAsDouble(json, "safe_temperature", DEFAULT_PROFILE.safeTemperature());
         double dangerTemperature = GsonHelper.getAsDouble(json, "danger_temperature", DEFAULT_PROFILE.dangerTemperature());
-        return new GtceuHeatProfile(blocks, suffixes, thermalMass, activeGain, euGain, passiveCooling, safeTemperature, dangerTemperature);
+        return new GtceuHeatProfile(blocks, suffixes, thermalMass, activeGain, euGain, passiveCooling,
+                minimumWorkingTemperature, idealMinTemperature, idealMaxTemperature, heatPowersMachine,
+                minimumRotarySpeed, idealMinRotarySpeed, idealMaxRotarySpeed, rotaryEnergyPerTick,
+                safeTemperature, dangerTemperature);
     }
 
     private static List<ResourceLocation> readResourceLocations(JsonObject json, String key) {

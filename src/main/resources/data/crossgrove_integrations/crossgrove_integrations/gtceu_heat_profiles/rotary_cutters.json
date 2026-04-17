@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    "gtceu:lv_cutter",
+    "gtceu:mv_cutter",
+    "gtceu:hv_cutter",
+    "gtceu:ev_cutter",
+    "gtceu:iv_cutter",
+    "gtceu:luv_cutter",
+    "gtceu:zpm_cutter",
+    "gtceu:uv_cutter"
+  ],
+  "thermal_mass": 25.0,
+  "active_temperature_gain_per_tick": 0.45,
+  "temperature_gain_per_eut": 0.0012,
+  "passive_cooling_rate": 0.00055,
+  "heat_powers_machine": true,
+  "minimum_rotary_speed": 4.0,
+  "ideal_min_rotary_speed": 7.0,
+  "ideal_max_rotary_speed": 16.0,
+  "rotary_energy_per_tick": 7.0,
+  "safe_temperature": 600.0,
+  "danger_temperature": 900.0
+}

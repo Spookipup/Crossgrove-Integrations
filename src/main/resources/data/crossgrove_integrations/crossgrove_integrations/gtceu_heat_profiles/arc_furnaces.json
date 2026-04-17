@@ -6,6 +6,10 @@
   "active_temperature_gain_per_tick": 2.5,
   "temperature_gain_per_eut": 0.004,
   "passive_cooling_rate": 0.00035,
+  "minimum_working_temperature": 800.0,
+  "ideal_min_temperature": 1000.0,
+  "ideal_max_temperature": 1350.0,
+  "heat_powers_machine": true,
   "safe_temperature": 1000.0,
   "danger_temperature": 1500.0
 }

@@ -1,0 +1,13 @@
+{
+  "blocks": [
+    "gtceu:alloy_blast_smelter"
+  ],
+  "thermal_mass": 1800.0,
+  "active_temperature_gain_per_tick": 0.06,
+  "temperature_gain_per_eut": 0.00006,
+  "passive_cooling_rate": 0.00006,
+  "ideal_min_temperature": 1400.0,
+  "ideal_max_temperature": 2200.0,
+  "safe_temperature": 2600.0,
+  "danger_temperature": 3300.0
+}

@@ -1,0 +1,15 @@
+{
+  "path_suffixes": [
+    "_alloy_smelter"
+  ],
+  "thermal_mass": 30.0,
+  "active_temperature_gain_per_tick": 0.85,
+  "temperature_gain_per_eut": 0.002,
+  "passive_cooling_rate": 0.00045,
+  "minimum_working_temperature": 450.0,
+  "ideal_min_temperature": 700.0,
+  "ideal_max_temperature": 1050.0,
+  "heat_powers_machine": true,
+  "safe_temperature": 1100.0,
+  "danger_temperature": 1400.0
+}

@@ -1,6 +1,6 @@
 package com.crossgrove.integrations.mixin;
 
-import com.crossgrove.integrations.CrossroadsLsoHeatBridge;
+import com.crossgrove.integrations.survival.CrossroadsLsoHeatBridge;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,8 +1,10 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.crop;
 
 import com.Da_Technomancer.crossroads.api.Capabilities;
 import com.Da_Technomancer.crossroads.api.heat.HeatUtil;
 import com.Da_Technomancer.crossroads.api.heat.IHeatHandler;
+import com.crossgrove.integrations.CrossgroveConfig;
+import com.crossgrove.integrations.CrossgroveIntegrations;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;

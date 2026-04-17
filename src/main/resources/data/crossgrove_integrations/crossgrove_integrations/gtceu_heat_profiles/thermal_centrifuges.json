@@ -1,0 +1,15 @@
+{
+  "path_suffixes": [
+    "_thermal_centrifuge"
+  ],
+  "thermal_mass": 40.0,
+  "active_temperature_gain_per_tick": 1.25,
+  "temperature_gain_per_eut": 0.003,
+  "passive_cooling_rate": 0.0004,
+  "minimum_working_temperature": 500.0,
+  "ideal_min_temperature": 750.0,
+  "ideal_max_temperature": 1150.0,
+  "heat_powers_machine": true,
+  "safe_temperature": 1200.0,
+  "danger_temperature": 1500.0
+}

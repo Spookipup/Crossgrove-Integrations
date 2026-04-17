@@ -1,9 +1,11 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.crop;
 
 import com.agricraft.agricraft.api.AgriApi;
 import com.agricraft.agricraft.api.plant.AgriPlant;
 import com.agricraft.agricraft.api.requirement.AgriGrowthConditionRegistry;
 import com.agricraft.agricraft.api.requirement.AgriGrowthResponse;
+import com.crossgrove.integrations.CrossgroveConfig;
+import com.crossgrove.integrations.CrossgroveIntegrations;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -29,7 +31,7 @@ public final class AgriCraftHeatBridge {
                         AgriCraftHeatBridge::getEffectiveTemperature
                 );
         if (AgriApi.getGrowthConditionRegistry().add(condition)) {
-            CrossgroveIntegrations.LOGGER.info("Registered AgriCraft Crossroads heat growth condition");
+            CrossgroveIntegrations.LOGGER.info("Registered AgriCraft heat growth condition");
         }
     }
 

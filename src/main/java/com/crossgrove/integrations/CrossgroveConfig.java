@@ -45,6 +45,18 @@ public final class CrossgroveConfig {
             .comment("Multiplier applied to incoming heat changes. 1 behaves like a small Crossroads heat machine; 200 behaves like a heat reservoir.")
             .defineInRange("gtceuHeatBridge.thermalMass", 50D, 1D, 1_000_000D);
 
+    private static final ForgeConfigSpec.BooleanValue SHARE_MULTIBLOCK_HEAT = BUILDER
+            .comment("When enabled, formed GTCEu multiblock parts attached to a selected controller share one Crossroads temperature body.")
+            .define("gtceuHeatBridge.shareMultiblockHeat", true);
+
+    private static final ForgeConfigSpec.DoubleValue MULTIBLOCK_STRUCTURE_BLOCK_THERMAL_MASS = BUILDER
+            .comment("Extra thermal mass added for each block position reported by a formed GTCEu multiblock controller. This approximates casings/coils that do not have block entities.")
+            .defineInRange("gtceuHeatBridge.multiblockStructureBlockThermalMass", 35D, 0D, 1_000_000D);
+
+    private static final ForgeConfigSpec.DoubleValue THERMAL_EXCHANGER_BODY_HEAT_TRANSFER_RATE = BUILDER
+            .comment("Heat transfer fraction each tick between a thermal exchanger hatch's own Crossroads heat capability and an adjacent formed GTCEu multiblock.")
+            .defineInRange("gtceuHeatBridge.thermalExchangerBodyHeatTransferRate", 0.05D, 0D, 1D);
+
     private static final ForgeConfigSpec.DoubleValue PASSIVE_COOLING_RATE = BUILDER
             .comment("Fraction of the temperature difference between a GTCEu machine and biome ambient moved per tick. Crossroads heat cables still do the real heat transport; this only prevents orphaned machines from staying hot forever.")
             .defineInRange("gtceuHeatBridge.passiveCoolingRate", 0.0005D, 0D, 1D);
@@ -168,6 +180,9 @@ public final class CrossgroveConfig {
     public static Set<ResourceLocation> disabledGtceuBlocks = Set.of();
     public static double ambientTemperatureC;
     public static double thermalMass;
+    public static boolean shareMultiblockHeat;
+    public static double multiblockStructureBlockThermalMass;
+    public static double thermalExchangerBodyHeatTransferRate;
     public static double passiveCoolingRate;
     public static double wasteHeatPerEUt;
     public static double minimumActiveWasteHeat;
@@ -230,6 +245,9 @@ public final class CrossgroveConfig {
                 .collect(Collectors.toUnmodifiableSet());
         ambientTemperatureC = AMBIENT_TEMPERATURE_C.get();
         thermalMass = THERMAL_MASS.get();
+        shareMultiblockHeat = SHARE_MULTIBLOCK_HEAT.get();
+        multiblockStructureBlockThermalMass = MULTIBLOCK_STRUCTURE_BLOCK_THERMAL_MASS.get();
+        thermalExchangerBodyHeatTransferRate = THERMAL_EXCHANGER_BODY_HEAT_TRANSFER_RATE.get();
         passiveCoolingRate = PASSIVE_COOLING_RATE.get();
         wasteHeatPerEUt = WASTE_HEAT_PER_EUT.get();
         minimumActiveWasteHeat = MINIMUM_ACTIVE_WASTE_HEAT.get();

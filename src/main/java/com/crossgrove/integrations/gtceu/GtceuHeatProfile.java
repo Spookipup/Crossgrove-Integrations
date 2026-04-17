@@ -1,4 +1,4 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.gtceu;
 
 import net.minecraft.resources.ResourceLocation;
 
@@ -11,6 +11,14 @@ public record GtceuHeatProfile(
         double activeTemperatureGainPerTick,
         double temperatureGainPerEUt,
         double passiveCoolingRate,
+        double minimumWorkingTemperature,
+        double idealMinTemperature,
+        double idealMaxTemperature,
+        boolean heatPowersMachine,
+        double minimumRotarySpeed,
+        double idealMinRotarySpeed,
+        double idealMaxRotarySpeed,
+        double rotaryEnergyPerTick,
         double safeTemperature,
         double dangerTemperature
 ) {
@@ -18,7 +26,17 @@ public record GtceuHeatProfile(
                                            double temperatureGainPerEUt, double passiveCoolingRate,
                                            double safeTemperature, double dangerTemperature) {
         return new GtceuHeatProfile(List.of(), suffixes, thermalMass, activeTemperatureGainPerTick,
-                temperatureGainPerEUt, passiveCoolingRate, safeTemperature, dangerTemperature);
+                temperatureGainPerEUt, passiveCoolingRate, Double.NaN, Double.NaN, Double.NaN,
+                false, Double.NaN, Double.NaN, Double.NaN, 0D,
+                safeTemperature, dangerTemperature);
+    }
+
+    public boolean requiresWorkingHeat() {
+        return Double.isFinite(minimumWorkingTemperature);
+    }
+
+    public boolean requiresRotaryPower() {
+        return Double.isFinite(minimumRotarySpeed);
     }
 
     public boolean matches(ResourceLocation blockId) {
@@ -31,6 +49,8 @@ public record GtceuHeatProfile(
 
     public GtceuHeatProfile withBlocks(List<ResourceLocation> blocks) {
         return new GtceuHeatProfile(blocks, pathSuffixes, thermalMass, activeTemperatureGainPerTick,
-                temperatureGainPerEUt, passiveCoolingRate, safeTemperature, dangerTemperature);
+                temperatureGainPerEUt, passiveCoolingRate, minimumWorkingTemperature, idealMinTemperature,
+                idealMaxTemperature, heatPowersMachine, minimumRotarySpeed, idealMinRotarySpeed,
+                idealMaxRotarySpeed, rotaryEnergyPerTick, safeTemperature, dangerTemperature);
     }
 }

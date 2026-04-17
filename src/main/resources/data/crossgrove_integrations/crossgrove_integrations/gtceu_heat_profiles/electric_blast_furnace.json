@@ -1,0 +1,13 @@
+{
+  "blocks": [
+    "gtceu:electric_blast_furnace"
+  ],
+  "thermal_mass": 1200.0,
+  "active_temperature_gain_per_tick": 4.0,
+  "temperature_gain_per_eut": 0.0015,
+  "passive_cooling_rate": 0.00008,
+  "ideal_min_temperature": 1200.0,
+  "ideal_max_temperature": 1800.0,
+  "safe_temperature": 2200.0,
+  "danger_temperature": 2800.0
+}

@@ -1,5 +1,7 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.crop;
 
+import com.crossgrove.integrations.CrossgroveConfig;
+import com.crossgrove.integrations.CrossgroveIntegrations;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

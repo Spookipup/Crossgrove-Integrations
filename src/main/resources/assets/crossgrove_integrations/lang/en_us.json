@@ -1,3 +1,9 @@
 {
-  "agricraft.tooltip.condition.crossgrove_heat": "This plant can not grow at the current heat level"
+  "agricraft.tooltip.condition.crossgrove_heat": "This plant can not grow at the current heat level",
+  "block.minecraft.end_portal_frame": "Broken End Portal Frame",
+  "block.crossgrove_integrations.thermal_exchanger_hatch": "Thermal Exchanger Hatch",
+  "config.jade.plugin_crossgrove_integrations.gtceu_heat": "Machine heat",
+  "config.jade.plugin_crossgrove_integrations.gtceu_crossroads_power_label": "Machine power label",
+  "message.crossgrove_integrations.portal.aether_blocked": "The Aether is too distant to ever reach without a great focus",
+  "message.crossgrove_integrations.portal.end_blocked": "The end is too distant to ever reach without a great focus"
 }

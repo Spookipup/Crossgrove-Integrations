@@ -1,0 +1,23 @@
+{
+  "blocks": [
+    "gtceu:lv_compressor",
+    "gtceu:mv_compressor",
+    "gtceu:hv_compressor",
+    "gtceu:ev_compressor",
+    "gtceu:iv_compressor",
+    "gtceu:luv_compressor",
+    "gtceu:zpm_compressor",
+    "gtceu:uv_compressor"
+  ],
+  "thermal_mass": 35.0,
+  "active_temperature_gain_per_tick": 0.6,
+  "temperature_gain_per_eut": 0.0015,
+  "passive_cooling_rate": 0.0005,
+  "heat_powers_machine": true,
+  "minimum_rotary_speed": 1.8,
+  "ideal_min_rotary_speed": 3.5,
+  "ideal_max_rotary_speed": 9.0,
+  "rotary_energy_per_tick": 14.0,
+  "safe_temperature": 700.0,
+  "danger_temperature": 1000.0
+}

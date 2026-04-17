@@ -1,4 +1,4 @@
-package com.crossgrove.integrations;
+package com.crossgrove.integrations.crop;
 
 import net.minecraft.resources.ResourceLocation;
 

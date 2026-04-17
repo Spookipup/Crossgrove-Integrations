@@ -1,6 +1,6 @@
 package com.crossgrove.integrations.mixin;
 
-import com.crossgrove.integrations.GtceuHeatTooltipData;
+import com.crossgrove.integrations.gtceu.GtceuHeatTooltipData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -30,12 +30,26 @@ public abstract class GtceuControllableBlockProviderMixin {
             return;
         }
 
-        Component reason = GtceuHeatTooltipData.hasSafeTemperature(serverData)
-                ? Component.literal("cooling below " + GtceuHeatTooltipData.formatTemperature(GtceuHeatTooltipData.getSafeTemperature(serverData)) + " C")
-                : Component.literal("cooling before restart");
-        tooltip.add(Component.literal("Overheated: ")
-                .withStyle(ChatFormatting.RED)
-                .append(reason.copy().withStyle(ChatFormatting.YELLOW)));
+        tooltip.add(heatSuspensionMessage(serverData));
         callbackInfo.cancel();
+    }
+
+    private static Component heatSuspensionMessage(CompoundTag serverData) {
+        return switch (GtceuHeatTooltipData.getHeatSuspensionReason(serverData)) {
+            case "too_cold" -> Component.literal("Needs heat: ")
+                    .withStyle(ChatFormatting.AQUA)
+                    .append(Component.literal(GtceuHeatTooltipData.formatTemperature(GtceuHeatTooltipData.getMinimumWorkingTemperature(serverData)) + " C")
+                            .withStyle(ChatFormatting.YELLOW));
+            case "no_rotary" -> Component.literal("Needs rotary power")
+                    .withStyle(ChatFormatting.LIGHT_PURPLE);
+            default -> {
+                Component reason = GtceuHeatTooltipData.hasSafeTemperature(serverData)
+                        ? Component.literal("cooling below " + GtceuHeatTooltipData.formatTemperature(GtceuHeatTooltipData.getSafeTemperature(serverData)) + " C")
+                        : Component.literal("cooling before restart");
+                yield Component.literal("Overheated: ")
+                        .withStyle(ChatFormatting.RED)
+                        .append(reason.copy().withStyle(ChatFormatting.YELLOW));
+            }
+        };
     }
 }
