@@ -1,0 +1,55 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "exdeorum"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "IPI",
+          "ATA",
+          "HLH"
+        ],
+        "key": {
+          "I": {
+            "tag": "forge:plates/iron"
+          },
+          "P": {
+            "item": "minecraft:piston"
+          },
+          "A": {
+            "type": "forge:nbt",
+            "item": "crossroads:axle",
+            "nbt": {
+              "material": "bronze"
+            }
+          },
+          "T": {
+            "tag": "exdeorum:hammers"
+          },
+          "H": {
+            "item": "minecraft:hopper"
+          },
+          "L": {
+            "type": "forge:nbt",
+            "item": "crossroads:gear_base_large",
+            "nbt": {
+              "material": "bronze"
+            }
+          }
+        },
+        "result": {
+          "item": "exdeorum:mechanical_hammer",
+          "count": 1
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

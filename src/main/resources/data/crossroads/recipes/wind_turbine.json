@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CWC",
+    "WAW",
+    "CWC"
+  ],
+  "key": {
+    "C": {
+      "tag": "minecraft:wool"
+    },
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    }
+  },
+  "result": {
+    "item": "crossroads:wind_turbine",
+    "count": 1
+  }
+}

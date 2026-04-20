@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ITI",
+    "BFB",
+    "ITI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "T": {
+      "item": "crossroads:fluid_tube"
+    },
+    "B": {
+      "tag": "forge:plates/bronze"
+    },
+    "F": {
+      "item": "minecraft:smoker"
+    }
+  },
+  "result": {
+    "item": "crossroads:steamer",
+    "count": 1
+  }
+}

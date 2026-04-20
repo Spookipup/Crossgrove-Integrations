@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": {
+    "item": "crossgrove_integrations:unfired_ceramic_bucket"
+  },
+  "result": "crossgrove_integrations:ceramic_bucket",
+  "experience": 0.3,
+  "cookingtime": 200
+}

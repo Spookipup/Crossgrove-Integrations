@@ -55,6 +55,13 @@ config="${mod_id}.mixins.json"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
+    modId="survivalistessentials"
+    mandatory=false
+    versionRange="[6.2.4.5,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="agricraft"
     mandatory=false
     versionRange="[4.0.6,)"
@@ -65,5 +72,12 @@ config="${mod_id}.mixins.json"
     modId="overgeared"
     mandatory=false
     versionRange="[1.6.27,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="exdeorum"
+    mandatory=false
+    versionRange="[1.49,)"
     ordering="AFTER"
     side="BOTH"

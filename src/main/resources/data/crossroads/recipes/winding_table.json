@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SGS",
+    "AKA",
+    "BBB"
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:cobblestone"
+    },
+    "G": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "K": {
+      "item": "crossroads:hand_crank"
+    },
+    "B": {
+      "tag": "forge:plates/bronze"
+    }
+  },
+  "result": {
+    "item": "crossroads:winding_table",
+    "count": 1
+  }
+}

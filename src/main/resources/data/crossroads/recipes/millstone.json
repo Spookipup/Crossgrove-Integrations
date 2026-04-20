@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SGS",
+    "GAG",
+    "SGS"
+  ],
+  "key": {
+    "S": {
+      "tag": "forge:cobblestone"
+    },
+    "G": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    }
+  },
+  "result": {
+    "item": "crossroads:millstone",
+    "count": 1
+  }
+}

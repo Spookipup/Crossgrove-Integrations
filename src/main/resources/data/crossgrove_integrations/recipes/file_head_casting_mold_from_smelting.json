@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "equipment",
+  "ingredient": {
+    "item": "crossgrove_integrations:unfired_file_head_clay_mold"
+  },
+  "result": "crossgrove_integrations:file_head_casting_mold",
+  "experience": 0.3,
+  "cookingtime": 200
+}

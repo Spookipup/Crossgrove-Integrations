@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crossgrove_integrations:item/molds/fired_shovel_head_casting_mold"
+  }
+}

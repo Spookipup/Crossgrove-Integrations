@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TAT",
+    "GLG",
+    "TAT"
+  ],
+  "key": {
+    "T": {
+      "item": "crossroads:fluid_tube"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "G": {
+      "tag": "forge:glass/colorless"
+    },
+    "L": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base_large",
+      "nbt": {
+        "material": "bronze"
+      }
+    }
+  },
+  "result": {
+    "item": "crossroads:rotary_pump",
+    "count": 1
+  }
+}

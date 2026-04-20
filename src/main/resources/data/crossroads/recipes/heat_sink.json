@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "III",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_bars"
+    },
+    "C": {
+      "tag": "forge:plates/copper"
+    }
+  },
+  "result": {
+    "item": "crossroads:heat_sink",
+    "count": 1
+  }
+}

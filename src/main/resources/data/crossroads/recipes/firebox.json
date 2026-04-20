@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CBC",
+    "CFC",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:plates/copper"
+    },
+    "B": {
+      "tag": "forge:plates/bronze"
+    },
+    "F": {
+      "item": "minecraft:furnace"
+    },
+    "S": {
+      "tag": "forge:cobblestone"
+    }
+  },
+  "result": {
+    "item": "crossroads:firebox",
+    "count": 1
+  }
+}

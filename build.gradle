@@ -175,6 +175,10 @@ dependencies {
     runtimeOnly fg.deobf("blank:AgriCraft-forge-1.20.1:${agricraft_version}")
     compileOnly fg.deobf("blank:overgeared:${overgeared_version}")
     runtimeOnly fg.deobf("blank:overgeared:${overgeared_version}")
+    compileOnly fg.deobf("blank:exdeorum:${exdeorum_version}")
+    runtimeOnly fg.deobf("blank:exdeorum:${exdeorum_version}")
+    compileOnly fg.deobf("blank:jei-1.20.1-forge:${jei_version}")
+    runtimeOnly fg.deobf("blank:jei-1.20.1-forge:${jei_version}")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 

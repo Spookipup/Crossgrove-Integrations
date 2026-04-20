@@ -1,0 +1,45 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WAW",
+    "MLM",
+    "IPI"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:planks"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "M": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle_mount",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "L": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base_large",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "P": {
+      "item": "minecraft:piston"
+    }
+  },
+  "result": {
+    "item": "crossroads:stamp_mill",
+    "count": 1
+  }
+}

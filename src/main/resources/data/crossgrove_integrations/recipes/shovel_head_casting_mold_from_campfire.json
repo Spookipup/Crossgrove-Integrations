@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "equipment",
+  "ingredient": {
+    "item": "crossgrove_integrations:unfired_shovel_head_clay_mold"
+  },
+  "result": "crossgrove_integrations:shovel_head_casting_mold",
+  "experience": 0.3,
+  "cookingtime": 600
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " R ",
+    "STS",
+    " R "
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:dusts/redstone"
+    },
+    "S": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "T": {
+      "item": "crossroads:fluid_tube"
+    }
+  },
+  "result": {
+    "item": "crossroads:redstone_fluid_tube",
+    "count": 1
+  }
+}

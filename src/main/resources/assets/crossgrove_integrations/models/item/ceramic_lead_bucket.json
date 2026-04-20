@@ -1,0 +1,11 @@
+{
+  "loader": "forge:fluid_container",
+  "parent": "forge:item/default",
+  "fluid": "gtceu:lead",
+  "flip_gas": false,
+  "apply_fluid_luminosity": false,
+  "textures": {
+    "base": "crossgrove_integrations:item/ceramic_bucket",
+    "fluid": "crossgrove_integrations:item/ceramic_bucket_fluid_mask"
+  }
+}

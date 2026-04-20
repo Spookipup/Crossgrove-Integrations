@@ -1,0 +1,28 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "overgeared"
+        }
+      ],
+      "recipe": {
+        "type": "overgeared:rock_knapping",
+        "pattern": [
+          "   ",
+          " x ",
+          "   "
+        ],
+        "ingredient": {
+          "item": "minecraft:clay_ball"
+        },
+        "result": {
+          "item": "crossgrove_integrations:unfired_saw_blade_clay_mold"
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

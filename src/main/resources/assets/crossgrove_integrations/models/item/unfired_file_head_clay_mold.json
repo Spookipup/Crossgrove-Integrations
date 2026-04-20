@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crossgrove_integrations:item/molds/unfired_file_head_clay_mold"
+  }
+}

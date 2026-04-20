@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IFI",
+    "RBR",
+    "SFS"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "F": {
+      "item": "gtceu:firebricks"
+    },
+    "R": {
+      "tag": "forge:rods/iron"
+    },
+    "B": {
+      "item": "crossroads:blast_furnace"
+    },
+    "S": {
+      "tag": "forge:screws/iron"
+    }
+  },
+  "result": {
+    "item": "gtceu:primitive_blast_furnace",
+    "count": 1
+  },
+  "show_notification": true
+}

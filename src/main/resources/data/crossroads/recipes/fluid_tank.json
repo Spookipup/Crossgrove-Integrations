@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GBG",
+    "B B",
+    "GBG"
+  ],
+  "key": {
+    "G": {
+      "tag": "forge:glass/colorless"
+    },
+    "B": {
+      "tag": "forge:plates/bronze"
+    }
+  },
+  "result": {
+    "item": "crossroads:fluid_tank",
+    "count": 1
+  }
+}

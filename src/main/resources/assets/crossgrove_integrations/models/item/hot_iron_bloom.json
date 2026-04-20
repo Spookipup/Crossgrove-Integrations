@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "crossgrove_integrations:item/iron_bloom",
+    "layer1": "crossgrove_integrations:item/hot_iron_bloom_overlay"
+  }
+}

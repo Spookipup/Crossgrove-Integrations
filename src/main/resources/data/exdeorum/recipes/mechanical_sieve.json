@@ -1,0 +1,55 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "exdeorum"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "category": "misc",
+        "pattern": [
+          "BGB",
+          "IHI",
+          "AMA"
+        ],
+        "key": {
+          "B": {
+            "tag": "forge:plates/bronze"
+          },
+          "G": {
+            "tag": "forge:glass/colorless"
+          },
+          "I": {
+            "item": "minecraft:iron_bars"
+          },
+          "H": {
+            "item": "minecraft:hopper"
+          },
+          "A": {
+            "type": "forge:nbt",
+            "item": "crossroads:axle",
+            "nbt": {
+              "material": "bronze"
+            }
+          },
+          "M": {
+            "type": "forge:nbt",
+            "item": "crossroads:gear_base",
+            "nbt": {
+              "material": "bronze"
+            }
+          }
+        },
+        "result": {
+          "item": "exdeorum:mechanical_sieve",
+          "count": 1
+        },
+        "show_notification": true
+      }
+    }
+  ]
+}

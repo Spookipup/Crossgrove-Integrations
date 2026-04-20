@@ -1,0 +1,69 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "overgeared"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "result": {
+          "item": "crossroads:axle",
+          "count": 2,
+          "nbt": {
+            "material": "bronze"
+          }
+        },
+        "pattern": [
+          "#",
+          "S"
+        ],
+        "key": {
+          "#": {
+            "item": "crossgrove_integrations:rough_bronze_axle_blank"
+          },
+          "S": {
+            "tag": "forge:rods/wooden"
+          }
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "overgeared"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "result": {
+          "item": "crossroads:axle",
+          "count": 2,
+          "nbt": {
+            "material": "bronze"
+          }
+        },
+        "pattern": [
+          " * ",
+          " S ",
+          " * "
+        ],
+        "key": {
+          "S": {
+            "tag": "forge:rods/wooden"
+          },
+          "*": {
+            "tag": "forge:ingots/bronze"
+          }
+        }
+      }
+    }
+  ]
+}

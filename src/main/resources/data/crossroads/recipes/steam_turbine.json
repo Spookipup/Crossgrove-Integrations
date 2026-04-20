@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ILI",
+    "TRT",
+    "IAI"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "L": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base_large",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "T": {
+      "item": "crossroads:fluid_tube"
+    },
+    "R": {
+      "item": "crossroads:rotary_pump"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    }
+  },
+  "result": {
+    "item": "crossroads:steam_turbine",
+    "count": 1
+  }
+}

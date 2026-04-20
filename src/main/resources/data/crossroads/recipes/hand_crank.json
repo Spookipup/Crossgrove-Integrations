@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " | ",
+    " |A",
+    "S  "
+  ],
+  "key": {
+    "|": {
+      "tag": "forge:rods/wooden"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "S": {
+      "tag": "forge:cobblestone"
+    }
+  },
+  "result": {
+    "item": "crossroads:hand_crank",
+    "count": 1
+  }
+}

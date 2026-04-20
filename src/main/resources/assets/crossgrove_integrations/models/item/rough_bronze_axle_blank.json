@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "crossgrove_integrations:item/rough_bronze_axle_blank"
+  }
+}

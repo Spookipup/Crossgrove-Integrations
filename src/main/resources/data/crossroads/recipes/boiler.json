@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "B B",
+    "CQC"
+  ],
+  "key": {
+    "B": {
+      "tag": "forge:plates/bronze"
+    },
+    "C": {
+      "tag": "forge:plates/copper"
+    },
+    "Q": {
+      "item": "minecraft:cauldron"
+    }
+  },
+  "result": {
+    "item": "crossroads:steam_boiler",
+    "count": 1
+  }
+}

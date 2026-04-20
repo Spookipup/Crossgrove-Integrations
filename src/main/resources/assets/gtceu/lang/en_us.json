@@ -1,7 +1,9 @@
 {
   "tagprefix.axe_head": "%s Axe Head",
   "tagprefix.billet": "%s Billet",
+  "tagprefix.concentrate": "%s Concentrate",
   "tagprefix.file_head": "%s File Head",
+  "tagprefix.fines": "%s Fines",
   "tagprefix.heavy_wire": "Heavy %s Wire",
   "tagprefix.hammer_head": "%s Hammer Head",
   "tagprefix.hoe_head": "%s Hoe Head",
@@ -16,10 +18,12 @@
   "tagprefix.raw_billet": "Raw %s Billet",
   "tagprefix.saw_blade": "%s Saw Blade",
   "tagprefix.scythe_blade": "%s Scythe Blade",
+  "tagprefix.sieve_mesh": "%s Mesh",
   "tagprefix.shovel_head": "%s Shovel Head",
   "tagprefix.small_billet": "Small %s Billet",
   "tagprefix.small_precision_billet": "Small Precision %s Billet",
   "tagprefix.small_raw_billet": "Small Raw %s Billet",
   "tagprefix.sword_blade": "%s Sword Blade",
+  "tagprefix.tailings": "%s Tailings",
   "tagprefix.threaded_rod": "Threaded %s Rod"
 }

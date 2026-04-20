@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "crossgrove_integrations:item/iron_bloom"
+  }
+}

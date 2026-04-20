@@ -1,0 +1,9 @@
+{
+  "knapping": [
+    {
+      "item": "minecraft:clay_ball",
+      "texture": "minecraft:textures/block/clay.png",
+      "sound": "minecraft:block.mud.hit"
+    }
+  ]
+}

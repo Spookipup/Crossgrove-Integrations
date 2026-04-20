@@ -1,0 +1,78 @@
+{
+  "type": "forge:conditional",
+  "recipes": [
+    {
+      "conditions": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "overgeared"
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "result": {
+          "item": "crossroads:clutch",
+          "count": 1,
+          "nbt": {
+            "material": "bronze"
+          }
+        },
+        "pattern": [
+          "*",
+          "|",
+          "|"
+        ],
+        "key": {
+          "*": {
+            "tag": "forge:plates/tin"
+          },
+          "|": {
+            "type": "forge:nbt",
+            "item": "crossroads:axle",
+            "nbt": {
+              "material": "bronze"
+            }
+          }
+        }
+      }
+    },
+    {
+      "conditions": [
+        {
+          "type": "forge:not",
+          "value": {
+            "type": "forge:mod_loaded",
+            "modid": "overgeared"
+          }
+        }
+      ],
+      "recipe": {
+        "type": "minecraft:crafting_shaped",
+        "result": {
+          "item": "crossroads:clutch",
+          "count": 1,
+          "nbt": {
+            "material": "bronze"
+          }
+        },
+        "pattern": [
+          "*",
+          "|",
+          "|"
+        ],
+        "key": {
+          "*": {
+            "tag": "forge:ingots/tin"
+          },
+          "|": {
+            "type": "forge:nbt",
+            "item": "crossroads:axle",
+            "nbt": {
+              "material": "bronze"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

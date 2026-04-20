@@ -11,9 +11,23 @@
     "GtceuEnergyContainerMixin",
     "GtceuPredicateBlocksMixin",
     "GtceuPredicatesMixin",
+    "ExDeorumCrucibleMixin",
+    "ExDeorumLavaCrucibleHeatMixin",
     "LsoBlockModifierMixin",
+    "OvergearedAnvilHammerSlotMixin",
     "OmniMeterMixin",
+    "OvergearedAnvilSlagMixin",
+    "OvergearedAnvilToolResultMixin",
+    "OvergearedAnvilUseHammerMixin",
+    "OvergearedHotItemDamageMixin",
+    "OvergearedKnappingInteractionMixin",
+    "OvergearedRockKnappingMenuAccessor",
     "RecipeManagerMixin"
+  ],
+  "client": [
+    "ExDeorumBarrelFluidMixingCategoryMixin",
+    "ExDeorumSieveItemContentsMixin",
+    "OvergearedRockKnappingScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 0

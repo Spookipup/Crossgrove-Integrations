@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "equipment",
+  "ingredient": {
+    "item": "crossgrove_integrations:unfired_scythe_blade_clay_mold"
+  },
+  "result": "crossgrove_integrations:scythe_blade_casting_mold",
+  "experience": 0.3,
+  "cookingtime": 600
+}

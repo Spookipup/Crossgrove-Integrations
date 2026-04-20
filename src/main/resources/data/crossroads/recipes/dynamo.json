@@ -1,0 +1,38 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CAC",
+    "IGI",
+    "IRI"
+  ],
+  "key": {
+    "C": {
+      "tag": "forge:plates/copper"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "G": {
+      "type": "forge:nbt",
+      "item": "crossroads:gear_base",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "R": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "result": {
+    "item": "crossroads:dynamo",
+    "count": 1
+  }
+}

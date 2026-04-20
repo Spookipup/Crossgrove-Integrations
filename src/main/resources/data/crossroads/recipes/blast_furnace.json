@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IAI",
+    "B B",
+    "BTB"
+  ],
+  "key": {
+    "I": {
+      "tag": "forge:plates/iron"
+    },
+    "A": {
+      "type": "forge:nbt",
+      "item": "crossroads:axle",
+      "nbt": {
+        "material": "bronze"
+      }
+    },
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "T": {
+      "item": "crossroads:fluid_tube"
+    }
+  },
+  "result": {
+    "item": "crossroads:blast_furnace",
+    "count": 1
+  }
+}
