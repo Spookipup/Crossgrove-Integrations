@@ -10,11 +10,23 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Objects;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class ThermalExchangerPatternSupport {
     private static final ResourceLocation THERMAL_EXCHANGER_HATCH_ID = Objects.requireNonNull(
             ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":thermal_exchanger_hatch")
+    );
+    private static final ResourceLocation ROTARY_INPUT_HATCH_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_input_hatch")
+    );
+    private static final ResourceLocation ROTARY_OUTPUT_HATCH_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_output_hatch")
+    );
+    private static final Set<ResourceLocation> CROSSGROVE_MULTIBLOCK_PART_IDS = Set.of(
+            THERMAL_EXCHANGER_HATCH_ID,
+            ROTARY_INPUT_HATCH_ID,
+            ROTARY_OUTPUT_HATCH_ID
     );
     private static final AtomicBoolean LOGGED_AUTO_ABILITY_HOOK = new AtomicBoolean();
     private static final AtomicBoolean LOGGED_CASING_HOOK = new AtomicBoolean();
@@ -22,31 +34,32 @@ public final class ThermalExchangerPatternSupport {
     private ThermalExchangerPatternSupport() {
     }
 
-    public static TraceabilityPredicate withThermalExchanger(TraceabilityPredicate original) {
+    public static TraceabilityPredicate withCrossgroveParts(TraceabilityPredicate original) {
         if (original == null) {
             return null;
         }
         if (LOGGED_AUTO_ABILITY_HOOK.compareAndSet(false, true)) {
-            CrossgroveIntegrations.LOGGER.info("Allowing thermal exchanger hatches in GTCEu auto-ability multiblock slots");
+            CrossgroveIntegrations.LOGGER.info("Allowing CrossGrove multiblock hatches in GTCEu auto-ability multiblock slots");
         }
-        return original.or(thermalExchangerPredicate());
+        return original.or(crossgrovePartPredicate());
     }
 
-    private static TraceabilityPredicate thermalExchangerPredicate() {
+    private static TraceabilityPredicate crossgrovePartPredicate() {
         return new TraceabilityPredicate(
-                ThermalExchangerPatternSupport::isThermalExchangerHatch,
+                ThermalExchangerPatternSupport::isCrossgroveMultiblockPart,
                 () -> new BlockInfo[0]
         );
     }
 
     public static void logCasingHook() {
         if (LOGGED_CASING_HOOK.compareAndSet(false, true)) {
-            CrossgroveIntegrations.LOGGER.info("Allowing thermal exchanger hatches to count as GTCEu casing multiblock blocks");
+            CrossgroveIntegrations.LOGGER.info("Allowing CrossGrove multiblock hatches to count as GTCEu casing multiblock blocks");
         }
     }
 
-    public static boolean isThermalExchangerHatch(MultiblockState state) {
-        return THERMAL_EXCHANGER_HATCH_ID.equals(ForgeRegistries.BLOCKS.getKey(state.getBlockState().getBlock()));
+    public static boolean isCrossgroveMultiblockPart(MultiblockState state) {
+        ResourceLocation blockId = ForgeRegistries.BLOCKS.getKey(state.getBlockState().getBlock());
+        return CROSSGROVE_MULTIBLOCK_PART_IDS.contains(blockId);
     }
 
     public static boolean containsGtceuCasing(Block[] blocks) {

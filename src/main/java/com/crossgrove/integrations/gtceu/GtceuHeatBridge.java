@@ -21,8 +21,20 @@ public final class GtceuHeatBridge {
     private static final ResourceLocation THERMAL_EXCHANGER_CAPABILITY_ID = Objects.requireNonNull(
             ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":thermal_exchanger_heat")
     );
+    private static final ResourceLocation ROTARY_INPUT_CAPABILITY_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_input")
+    );
+    private static final ResourceLocation ROTARY_OUTPUT_CAPABILITY_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_output")
+    );
     private static final ResourceLocation THERMAL_EXCHANGER_HATCH_ID = Objects.requireNonNull(
             ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":thermal_exchanger_hatch")
+    );
+    private static final ResourceLocation ROTARY_INPUT_HATCH_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_input_hatch")
+    );
+    private static final ResourceLocation ROTARY_OUTPUT_HATCH_ID = Objects.requireNonNull(
+            ResourceLocation.tryParse(CrossgroveIntegrations.MOD_ID + ":rotary_output_hatch")
     );
     private static final String GTCEU_NAMESPACE = "gtceu";
     private static final String GTCEU_MULTIBLOCK_PART = "com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiPart";
@@ -32,12 +44,33 @@ public final class GtceuHeatBridge {
 
     @SubscribeEvent
     public static void attachHeatCapability(AttachCapabilitiesEvent<BlockEntity> event) {
-        if (!CrossgroveConfig.enableGtceuHeatBridge || Capabilities.HEAT_CAPABILITY == null) {
+        if (!CrossgroveConfig.enableGtceuHeatBridge) {
             return;
         }
 
         BlockEntity blockEntity = event.getObject();
         ResourceLocation blockId = ForgeRegistries.BLOCKS.getKey(blockEntity.getBlockState().getBlock());
+        if (ROTARY_INPUT_HATCH_ID.equals(blockId)) {
+            if (Capabilities.AXLE_CAPABILITY != null || Capabilities.COG_CAPABILITY != null) {
+                RotaryHatchProvider provider = new RotaryHatchProvider(blockEntity, RotaryHatchMode.INPUT);
+                event.addCapability(ROTARY_INPUT_CAPABILITY_ID, provider);
+                event.addListener(provider::invalidate);
+                CrossgroveIntegrations.LOGGER.debug("Attached Crossroads rotary capability to rotary input hatch");
+            }
+            return;
+        }
+        if (ROTARY_OUTPUT_HATCH_ID.equals(blockId)) {
+            if (Capabilities.AXLE_CAPABILITY != null || Capabilities.COG_CAPABILITY != null) {
+                RotaryHatchProvider provider = new RotaryHatchProvider(blockEntity, RotaryHatchMode.OUTPUT);
+                event.addCapability(ROTARY_OUTPUT_CAPABILITY_ID, provider);
+                event.addListener(provider::invalidate);
+                CrossgroveIntegrations.LOGGER.debug("Attached Crossroads rotary capability to rotary output hatch");
+            }
+            return;
+        }
+        if (Capabilities.HEAT_CAPABILITY == null) {
+            return;
+        }
         if (THERMAL_EXCHANGER_HATCH_ID.equals(blockId)) {
             ThermalExchangerHatchProvider provider = new ThermalExchangerHatchProvider(blockEntity);
             event.addCapability(THERMAL_EXCHANGER_CAPABILITY_ID, provider);
@@ -67,7 +100,7 @@ public final class GtceuHeatBridge {
     }
 
     static boolean isSelectedGtceuMachine(ResourceLocation blockId) {
-        if (blockId == null || !GTCEU_NAMESPACE.equals(blockId.getNamespace())) {
+        if (blockId == null) {
             return false;
         }
         if (CrossgroveConfig.disabledGtceuBlocks.contains(blockId)) {
@@ -81,6 +114,9 @@ public final class GtceuHeatBridge {
         }
         if (GtceuHeatProfiles.isProfiled(blockId)) {
             return true;
+        }
+        if (!GTCEU_NAMESPACE.equals(blockId.getNamespace())) {
+            return false;
         }
 
         String path = blockId.getPath();

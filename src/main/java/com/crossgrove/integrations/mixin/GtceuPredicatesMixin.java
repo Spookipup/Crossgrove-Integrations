@@ -25,7 +25,7 @@ public abstract class GtceuPredicatesMixin {
                                                                               boolean inputEnergy,
                                                                               boolean outputEnergy,
                                                                               CallbackInfoReturnable<TraceabilityPredicate> cir) {
-        cir.setReturnValue(ThermalExchangerPatternSupport.withThermalExchanger(cir.getReturnValue()));
+        cir.setReturnValue(ThermalExchangerPatternSupport.withCrossgroveParts(cir.getReturnValue()));
     }
 
     @Inject(
@@ -38,6 +38,6 @@ public abstract class GtceuPredicatesMixin {
                                                                              boolean checkMaintenance,
                                                                              boolean checkMuffler,
                                                                              CallbackInfoReturnable<TraceabilityPredicate> cir) {
-        cir.setReturnValue(ThermalExchangerPatternSupport.withThermalExchanger(cir.getReturnValue()));
+        cir.setReturnValue(ThermalExchangerPatternSupport.withCrossgroveParts(cir.getReturnValue()));
     }
 }

@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Comparator;
 import java.util.Objects;
 
 public final class GtceuCrossroadsPower {
@@ -57,14 +58,35 @@ public final class GtceuCrossroadsPower {
 
             Direction side = direction.getOpposite();
             RotaryState axleState = readAxle(neighbor.getCapability(Capabilities.AXLE_CAPABILITY, side));
-            if (axleState.speed() > best.speed()) {
-                best = axleState;
-            }
+            best = pickBetter(best, axleState);
 
             RotaryState cogState = readCog(neighbor.getCapability(Capabilities.COG_CAPABILITY, side));
-            if (cogState.speed() > best.speed()) {
-                best = cogState;
+            best = pickBetter(best, cogState);
+        }
+        return best;
+    }
+
+    public static RotaryState findBestMultiblockRotary(Level level, @Nullable Object machine, RotaryState currentBest) {
+        if (machine == null || !booleanCall(machine, "isFormed", false) || !isMultiController(machine)) {
+            return currentBest;
+        }
+
+        RotaryState best = currentBest;
+        Object parts = invokeNoArg(machine, "getParts");
+        if (!(parts instanceof Iterable<?> iterable)) {
+            return best;
+        }
+
+        for (Object part : iterable) {
+            Object pos = invokeNoArg(part, "getPos");
+            if (!(pos instanceof BlockPos blockPos)) {
+                continue;
             }
+            RotaryHatchProvider provider = RotaryHatchProvider.find(level.getBlockEntity(blockPos));
+            if (provider == null || !provider.isInput()) {
+                continue;
+            }
+            best = pickBetter(best, provider.readState());
         }
         return best;
     }
@@ -83,7 +105,7 @@ public final class GtceuCrossroadsPower {
 
     private static RotaryState readAxle(LazyOptional<IAxleHandler> optional) {
         return optional.resolve()
-                .map(GtceuCrossroadsPower::stateForAxle)
+                .map(GtceuCrossroadsPower::rotaryStateForAxle)
                 .orElse(NO_ROTARY);
     }
 
@@ -91,12 +113,43 @@ public final class GtceuCrossroadsPower {
         return optional.resolve()
                 .map(ICogHandler::getAxle)
                 .filter(Objects::nonNull)
-                .map(GtceuCrossroadsPower::stateForAxle)
+                .map(GtceuCrossroadsPower::rotaryStateForAxle)
                 .orElse(NO_ROTARY);
     }
 
-    private static RotaryState stateForAxle(IAxleHandler axle) {
+    public static RotaryState rotaryStateForAxle(IAxleHandler axle) {
         return new RotaryState(axle, Math.abs(axle.getSpeed()), Math.max(0D, axle.getEnergy()));
+    }
+
+    private static RotaryState pickBetter(RotaryState current, RotaryState candidate) {
+        return Comparator.comparingDouble(RotaryState::speed)
+                .thenComparingDouble(RotaryState::energy)
+                .compare(candidate, current) > 0 ? candidate : current;
+    }
+
+    private static boolean isMultiController(Object machine) {
+        return implementsNamedInterface(machine.getClass(), "com.gregtechceu.gtceu.api.machine.feature.multiblock.IMultiController");
+    }
+
+    private static boolean implementsNamedInterface(Class<?> type, String interfaceName) {
+        Class<?> cursor = type;
+        while (cursor != null) {
+            if (interfaceName.equals(cursor.getName())) {
+                return true;
+            }
+            for (Class<?> candidate : cursor.getInterfaces()) {
+                if (implementsNamedInterface(candidate, interfaceName)) {
+                    return true;
+                }
+            }
+            cursor = cursor.getSuperclass();
+        }
+        return false;
+    }
+
+    private static boolean booleanCall(Object target, String methodName, boolean fallback) {
+        Object value = invokeNoArg(target, methodName);
+        return value instanceof Boolean booleanValue ? booleanValue : fallback;
     }
 
     private static Object invokeNoArg(Object target, String methodName) {

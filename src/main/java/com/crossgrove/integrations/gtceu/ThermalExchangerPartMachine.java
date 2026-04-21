@@ -7,9 +7,4 @@ public final class ThermalExchangerPartMachine extends MultiblockPartMachine {
     public ThermalExchangerPartMachine(IMachineBlockEntity holder) {
         super(holder);
     }
-
-    @Override
-    public boolean replacePartModelWhenFormed() {
-        return false;
-    }
 }

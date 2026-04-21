@@ -25,6 +25,6 @@ public abstract class GtceuPredicateBlocksMixin extends SimplePredicate {
         }
         ThermalExchangerPatternSupport.logCasingHook();
         Predicate<MultiblockState> original = predicate;
-        predicate = state -> original.test(state) || ThermalExchangerPatternSupport.isThermalExchangerHatch(state);
+        predicate = state -> original.test(state) || ThermalExchangerPatternSupport.isCrossgroveMultiblockPart(state);
     }
 }

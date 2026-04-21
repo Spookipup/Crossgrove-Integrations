@@ -200,7 +200,7 @@ public final class GtceuHeatProvider implements ICapabilitySerializable<Compound
 			heatResume(machine, temperature, profile.minimumWorkingTemperature());
 		}
 
-		GtceuCrossroadsPower.RotaryState rotaryState = readRotaryState();
+		GtceuCrossroadsPower.RotaryState rotaryState = readRotaryState(machine);
 		if (!SUSPENSION_TOO_HOT.equals(heatSuspensionReason)
 				&& !SUSPENSION_TOO_COLD.equals(heatSuspensionReason)
 				&& profile.requiresRotaryPower()
@@ -230,11 +230,14 @@ public final class GtceuHeatProvider implements ICapabilitySerializable<Compound
 		}
 	}
 
-	private GtceuCrossroadsPower.RotaryState readRotaryState() {
+	private GtceuCrossroadsPower.RotaryState readRotaryState(Object machine) {
 		Level level = blockEntity.getLevel();
 		GtceuCrossroadsPower.RotaryState state = level == null
 				? GtceuCrossroadsPower.NO_ROTARY
 				: GtceuCrossroadsPower.findBestRotary(level, blockEntity.getBlockPos());
+		if (level != null) {
+			state = GtceuCrossroadsPower.findBestMultiblockRotary(level, machine, state);
+		}
 		lastRotarySpeed = state.speed();
 		lastRotaryEnergy = state.energy();
 		return state;

@@ -20,11 +20,11 @@ public final class CrossgroveConfig {
             .define("gtceuHeatBridge.enabled", true);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> ENABLED_GTCEU_BLOCKS = BUILDER
-            .comment("Exact GTCEu block IDs that should expose Crossroads heat, for example gtceu:lv_electric_furnace.")
+            .comment("Exact machine block IDs that should expose Crossroads heat, for example gtceu:lv_electric_furnace or crossgrove_integrations:example_controller.")
             .defineListAllowEmpty("gtceuHeatBridge.enabledBlocks", List.of(), CrossgroveConfig::isResourceLocation);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> ENABLED_GTCEU_PATH_SUFFIXES = BUILDER
-            .comment("GTCEu block path suffixes that should expose Crossroads heat. This keeps tiered machines selectable without listing every voltage tier.")
+            .comment("GTCEu block path suffixes that should expose Crossroads heat. This keeps tiered GregTech machines selectable without listing every voltage tier.")
             .defineListAllowEmpty("gtceuHeatBridge.enabledPathSuffixes", List.of(
                     "_electric_furnace",
                     "_alloy_smelter",
@@ -34,7 +34,7 @@ public final class CrossgroveConfig {
             ), CrossgroveConfig::isPathSuffix);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> DISABLED_GTCEU_BLOCKS = BUILDER
-            .comment("Exact GTCEu block IDs that should never expose Crossroads heat, even if matched by a suffix.")
+            .comment("Exact machine block IDs that should never expose Crossroads heat, even if matched by a suffix or data profile.")
             .defineListAllowEmpty("gtceuHeatBridge.disabledBlocks", List.of(), CrossgroveConfig::isResourceLocation);
 
     private static final ForgeConfigSpec.DoubleValue AMBIENT_TEMPERATURE_C = BUILDER
@@ -78,7 +78,7 @@ public final class CrossgroveConfig {
             .defineInRange("gtceuHeatBridge.dangerTemperatureC", 1200D, -273D, 1_000_000D);
 
     private static final ForgeConfigSpec.ConfigValue<List<? extends String>> HIGH_TEMPERATURE_GTCEU_BLOCKS = BUILDER
-            .comment("Exact GTCEu block IDs treated as high-temperature machines. These get larger safe/danger ranges so GregTech's existing coil/blast temperature mechanics remain dominant.")
+            .comment("Exact machine block IDs treated as high-temperature machines. These get larger safe/danger ranges so GregTech's existing coil/blast temperature mechanics remain dominant.")
             .defineListAllowEmpty("gtceuHeatBridge.highTemperatureBlocks", List.of(
                     "gtceu:electric_blast_furnace",
                     "gtceu:alloy_blast_smelter"

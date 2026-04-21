@@ -2,6 +2,8 @@
   "agricraft.tooltip.condition.crossgrove_heat": "This plant can not grow at the current heat level",
   "block.minecraft.end_portal_frame": "Broken End Portal Frame",
   "block.crossgrove_integrations.thermal_exchanger_hatch": "Thermal Exchanger Hatch",
+  "block.crossgrove_integrations.rotary_input_hatch": "Rotary Input Hatch",
+  "block.crossgrove_integrations.rotary_output_hatch": "Rotary Output Hatch",
   "gui.crossgrove_integrations.sculpting": "Sculpting",
   "item.crossgrove_integrations.unfired_ceramic_bucket": "Unfired Ceramic Bucket",
   "item.crossgrove_integrations.ceramic_bucket": "Ceramic Bucket",
