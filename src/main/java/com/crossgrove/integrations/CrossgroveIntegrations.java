@@ -21,6 +21,7 @@ import com.crossgrove.integrations.gtceu.GtceuHeatBridge;
 import com.crossgrove.integrations.gtceu.exdeorum.ExDeorumCrucibleOverrides;
 import com.crossgrove.integrations.gtceu.exdeorum.ExDeorumHeatBridge;
 import com.crossgrove.integrations.gtceu.overgeared.OvergearedRecipeReloadListener;
+import com.crossgrove.integrations.mechanical.MechanicalItems;
 import com.crossgrove.integrations.metallurgy.MetallurgyItems;
 import com.crossgrove.integrations.portal.AetherPortalHandler;
 import com.crossgrove.integrations.portal.EndPortalHandler;
@@ -36,6 +37,7 @@ public final class CrossgroveIntegrations {
 		context.registerConfig(ModConfig.Type.COMMON, CrossgroveConfig.SPEC);
 		CastingMoldItems.register(context.getModEventBus());
 		CeramicItems.register(context.getModEventBus());
+		MechanicalItems.register(context.getModEventBus());
 		MetallurgyItems.register(context.getModEventBus());
 		MinecraftForge.EVENT_BUS.register(GtceuHeatBridge.class);
 		MinecraftForge.EVENT_BUS.register(CropHeatBridge.class);
